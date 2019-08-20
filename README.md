@@ -1,2 +1,3 @@
 # Pomodoro APP
-## ![pomodoro](/uploads/f8fed95fb4f514d9540e63a3dae5da71/pomo.png)
+## ![pomodoro](https://user-images.githubusercontent.com/25849810/63312735-c7a95a80-c2d8-11e9-8a05-4bbe11f6d1f7.png)
+
