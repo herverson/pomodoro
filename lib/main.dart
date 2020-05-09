@@ -1,5 +1,4 @@
 import 'package:pomodoro/pomodoro_timer.dart';
-import 'package:pomodoro/pomodoro_timer_button.dart';
 import 'package:pomodoro/pomodoro_timer_controls.dart';
 import 'package:pomodoro/pomodoro_timer_dial.dart';
 import 'package:pomodoro/pomodoro_timer_time_display.dart';
@@ -22,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   _MyAppState() {
     
     eggTimer = new EggTimer(
-      maxTime: const Duration(minutes: 25),
+      maxTime: const Duration(minutes: 26),
       onTimerUpdate: _onTimerUpdate,
     );
   }

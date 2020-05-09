@@ -1,9 +1,9 @@
 
 
+import 'package:fluttery_dart2/gestures.dart';
 import 'package:pomodoro/pomodoro_timer.dart';
 import 'package:pomodoro/pomodoro_timer_knob.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttery/gestures.dart';
 import 'dart:math' as math;
 
 final Color GRADIENT_TOP = const Color(0xFFF5F5F5);
