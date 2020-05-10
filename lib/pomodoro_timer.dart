@@ -4,7 +4,7 @@ import 'package:audioplayers/audio_cache.dart';
 const alarmAudioPath = "alarme.mp3";
 
 class EggTimer {
-  static AudioCache player = new AudioCache();
+  final AudioCache player = new AudioCache();
   final Duration maxTime;
   final Function onTimerUpdate;
   final Stopwatch stopwatch = new Stopwatch();
@@ -84,17 +84,35 @@ class EggTimer {
     }
   }
 
-  _tick() {
+  _tick() async {
     print('Tempo atual: ${_currentTime.inSeconds}');
     _currentTime = lastStartTime - stopwatch.elapsed;
-    
+    if (_currentTime.inSeconds == 0) {
+      await player.play(alarmAudioPath);
+      state = EggTimerState.ready;
+        _currentTime = const Duration(seconds: 0);
+        lastStartTime = _currentTime;
+        stopwatch.reset();
+        concluido = false;
+        if (null != onTimerUpdate) {
+          onTimerUpdate();
+        }
+    }
     if (_currentTime.inSeconds > 0) {
       new Timer(const Duration(seconds: 1), _tick);
     } else {
       if (concluido)
       {
         print('deu certo');
-        player.play(alarmAudioPath);
+        await player.play(alarmAudioPath);
+        state = EggTimerState.ready;
+        _currentTime = const Duration(seconds: 0);
+        lastStartTime = _currentTime;
+        stopwatch.reset();
+        concluido = false;
+        if (null != onTimerUpdate) {
+          onTimerUpdate();
+        }
       }
       state = EggTimerState.ready;
     }
