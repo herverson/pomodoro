@@ -15,4 +15,15 @@ abstract class _PomodoroStoreBase with Store {
     return breakTime;
   }
 
+  @observable
+  bool isBreakTime = false;
+
+  @action
+  void setisBreakTime(bool value) => isBreakTime = value;
+
+  @computed
+  bool get getisBreakTime {
+    return isBreakTime;
+  }
+
 }

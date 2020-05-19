@@ -15,6 +15,12 @@ mixin _$PomodoroStore on _PomodoroStoreBase, Store {
   bool get getBreakTime =>
       (_$getBreakTimeComputed ??= Computed<bool>(() => super.getBreakTime))
           .value;
+  Computed<bool> _$getisBreakTimeComputed;
+
+  @override
+  bool get getisBreakTime =>
+      (_$getisBreakTimeComputed ??= Computed<bool>(() => super.getisBreakTime))
+          .value;
 
   final _$breakTimeAtom = Atom(name: '_PomodoroStoreBase.breakTime');
 
@@ -33,6 +39,23 @@ mixin _$PomodoroStore on _PomodoroStoreBase, Store {
     }, _$breakTimeAtom, name: '${_$breakTimeAtom.name}_set');
   }
 
+  final _$isBreakTimeAtom = Atom(name: '_PomodoroStoreBase.isBreakTime');
+
+  @override
+  bool get isBreakTime {
+    _$isBreakTimeAtom.context.enforceReadPolicy(_$isBreakTimeAtom);
+    _$isBreakTimeAtom.reportObserved();
+    return super.isBreakTime;
+  }
+
+  @override
+  set isBreakTime(bool value) {
+    _$isBreakTimeAtom.context.conditionallyRunInAction(() {
+      super.isBreakTime = value;
+      _$isBreakTimeAtom.reportChanged();
+    }, _$isBreakTimeAtom, name: '${_$isBreakTimeAtom.name}_set');
+  }
+
   final _$_PomodoroStoreBaseActionController =
       ActionController(name: '_PomodoroStoreBase');
 
@@ -47,9 +70,19 @@ mixin _$PomodoroStore on _PomodoroStoreBase, Store {
   }
 
   @override
+  void setisBreakTime(bool value) {
+    final _$actionInfo = _$_PomodoroStoreBaseActionController.startAction();
+    try {
+      return super.setisBreakTime(value);
+    } finally {
+      _$_PomodoroStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     final string =
-        'breakTime: ${breakTime.toString()},getBreakTime: ${getBreakTime.toString()}';
+        'breakTime: ${breakTime.toString()},isBreakTime: ${isBreakTime.toString()},getBreakTime: ${getBreakTime.toString()},getisBreakTime: ${getisBreakTime.toString()}';
     return '{$string}';
   }
 }
