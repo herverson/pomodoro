@@ -25,7 +25,6 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   intl: "^0.15.2"
-  fluttery_dart2: ^0.0.9
   audioplayers: ^0.15.1
   flutter_local_notifications: ^1.4.3
   provider:
